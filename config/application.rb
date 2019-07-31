@@ -9,7 +9,6 @@ module Igclone
     config.load_defaults 5.2
     config.generators do |g|
       a.assets false
-      a.helper false
       a.jbuilder false
     end
     config.time_zone = 'Tokyo'
