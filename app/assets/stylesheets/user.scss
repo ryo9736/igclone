@@ -1,3 +1,24 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.card {
+    max-width: 350px;
+    padding: 50px 70px;
+    background-color: #F7F7F7;
+    margin: 0 auto 25px;
+    margin-top: 90px;
+    margin-bottom: 50px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.form{
+    text-align:center;
+}
+
