@@ -1,2 +1,13 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+
+
+<strong>Name:</strong>
+<%= @user.name %>
+
+<strong>Title:</strong>
+<%= @post.title %>
+
+<strong>Content:</strong>
+<%= @post.content %>
+
+<strong>Image:</strong>
+<%= image_tag(@post.image.url) if @post.image && @post.image.url %>
