@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    Post.create(post_params)
   end
 
   def show
@@ -20,5 +21,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title,:content,:image,:image_cash)
   end
 end
