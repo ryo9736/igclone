@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   mount_uploader :image, ImageUploader
-  has_many :posts
+  has_many :posts,dependent: :destroy
   has_many :favorites,dependent: :destroy
   has_secure_password
   validates :password_digest, presence: true, length: { minimum: 6 }

@@ -1,2 +1,36 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="card card-container">
+  <img id="profile-img" class="profile-img img-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png">
+    <p id="profile-name" class="profile-name-card"></p>
+      <%= form_with(model: @user, local: true) do |f| %>
+        <br>
+        <br>
+        <%= f.label :thumbnail %>
+        <br>
+        <%= f.file_field  :image %>
+        <br>
+        <br>
+        <%= f.label :name %>
+        <br>
+        <%= f.text_field :name %>
+        <br>
+        <br>
+        <%= f.label :email %>
+        <br>
+        <%= f.email_field :email %>
+        <br>
+        <br>
+        <%= f.label :password %>
+        <br>
+        <%= f.password_field :password %>
+        <br>
+        <br>
+        <%= f.label :password_confirmation %>
+        <br>
+        <%= f.password_field :password_confirmation %>
+        <br>
+        <br>
+        <br>
+        <%= f.submit "Edit my account" %>
+        <br>
+      <% end %>
+</div>
