@@ -4,6 +4,11 @@
       <%= form_with(model: @user, local: true) do |f| %>
         <br>
         <br>
+        <%= f.label :thumbnail %>
+        <br>
+        <%= f.file_field :image %>
+        <br>
+        <br>
         <%= f.label :name %>
         <br>
         <%= f.text_field :name %>

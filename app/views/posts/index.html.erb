@@ -7,6 +7,7 @@
   <table class="table table-condensed">
     <thead>
       <tr class = "info">
+        <th>thumbnail</th>
         <th>name</th>
         <th>title</th>
         <th>content</th>
@@ -19,13 +20,14 @@
     <tbody>
       <% @posts.each do |post| %>
       <tr class>
+        <th><%= image_tag post.user.image.url if post.user.image && post.user.image.url  %></th>
         <th><%= post.user.name %></th>
         <th><%= post.title %></th>
         <th><%= post.content %></th>
         <th><%= image_tag post.image.url if post.image && post.image.url  %></th>
-        <td><%= link_to '詳細を確認する',post_path(post.id)%></td>
-        <td><%= link_to '編集する',edit_post_path(post.id)%></td>
-        <td><%= link_to "削除する", post_path(post.id),method: :delete %></td>
+        <td><%= link_to 'show',post_path(post.id)%></td>
+        <td><%= link_to 'edit',edit_post_path(post.id)%></td>
+        <td><%= link_to "delete", post_path(post.id),method: :delete %></td>
        </tr>
       <% end %>
     </tbody>

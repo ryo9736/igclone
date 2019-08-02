@@ -15,6 +15,7 @@
 					<li><%= link_to 'Logout',session_path(current_user.id),method: :delete,class:'btn btn-default btn-block' %></li>
 					<li><%= link_to 'My Profile',user_path(current_user.id),class:'btn btn-default btn-block' %></li>
 					<li><%= link_to 'Users Info.',users_path,class:'btn btn-default btn-block'  %></li>
+					<li><%= link_to 'post index',posts_path,class:'btn btn-default btn-block'  %></li>
 				<% else %>
 					<li><%= link_to 'Sign up',new_user_path,class:'btn btn-default btn-block'%></li>
 					<li><%= link_to 'Login',new_session_path,class:'btn btn-default btn-block' %></li>
