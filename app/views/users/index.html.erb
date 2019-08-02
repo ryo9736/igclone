@@ -1,2 +1,29 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="containerr">
+  <header class="headerr"><strong>User Info</strong></header>
+</div>
+  <table class="table table-condensed">
+    <thead>
+      <tr class = "info">
+        <th>thumbnail</th>
+        <th>name</th>
+        <th>email</th>
+        <th>show</th>
+        <th>edit</th>
+        <th>delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr class>
+        <th><%= image_tag user.image.url if user.image && user.image.url  %></th>
+        <th><%= user.name %></th>
+        <th><%= user.email %></th>
+        <td><%= link_to '詳細を確認する',user_path(user.id)%></td>
+        <td><%= link_to '編集する',edit_user_path(user.id)%></td>
+        <td><%= link_to "削除する", user_path(user.id), method: :delete %></td>
+       </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
