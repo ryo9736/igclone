@@ -1,13 +1,38 @@
-
-
-<strong>Name:</strong>
-<%= @user.name %>
-
-<strong>Title:</strong>
-<%= @post.title %>
-
-<strong>Content:</strong>
-<%= @post.content %>
-
-<strong>Image:</strong>
-<%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+<div class="container">
+  <div class="post_content">
+  <br>
+  <br>
+    <P>
+    <strong>Name:</strong>
+    <%= @user.name %>
+    </P>
+  </div>
+  <div class="post_content">
+  <br>
+  <br>
+    <P>
+    <strong>Title:</strong>
+    <%= @post.title %>
+    </P>
+  </div>
+  <div class="post_content">
+  <br>
+  <br>
+  <P>
+    <strong>Content:</strong>
+    <%= @post.content %>
+  </P>
+  </div>
+  <div class="post_content">
+  <br>
+  <br>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @post.image.url if @post.image && @post.image.url %>
+  </p>
+  </div>
+  <br>
+  <br>
+  <%= link_to 'Back', posts_path %>
+  <br>
+  <br>

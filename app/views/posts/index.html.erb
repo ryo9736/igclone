@@ -1,2 +1,34 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="containerr">
+  <div class="flex-container">
+    <header class="headerr"><strong><%= link_to 'New Post' , new_post_path %></strong></header>
+    <header class="headerr"><strong>投稿一覧</strong></header>
+  </div>
+  <div class="table-responsive">
+  <table class="table table-condensed">
+    <thead>
+      <tr class = "info">
+        <th>name</th>
+        <th>title</th>
+        <th>content</th>
+        <th>image</th>
+        <th>show</th>
+        <th>edit</th>
+        <th>delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr class>
+        <th><%= post.user.name %></th>
+        <th><%= post.title %></th>
+        <th><%= post.content %></th>
+        <th><%= image_tag post.image.url if post.image && post.image.url  %></th>
+        <td><%= link_to '詳細を確認する',post_path(post.id)%></td>
+        <td><%= link_to '編集する',edit_post_path(post.id)%></td>
+        <td><%= link_to "削除する", post_path(post.id),method: :delete %></td>
+       </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>

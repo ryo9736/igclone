@@ -1,22 +1,21 @@
-<div class="container">
-  <div class="row1">
+<div class="container_form">
+  <div class="row">
     <%= form_with(model: @post, local: true) do |form| %>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <%= form.label :title %>
         <%= form.text_field :title %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <%= form.label :content %>
         <%= form.text_field :content %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <%= form.label :image %>
         <%= form.file_field  :image %>
       </div>
-  </div>
-  <div class="row2">
-    <%= form.submit %>
-  </div>
-  <% end %>
+      <div class="col-md-3">
+      <%= form.submit %>
+     </div>
+    <% end %>
 </div>
 
