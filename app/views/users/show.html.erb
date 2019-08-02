@@ -1,7 +1,23 @@
-<h1><%= @user.name %>のページ</h1>
-
-<p>メールアドレス: <%= @user.email %></p>
-
-<p>サムネイル画像: <%= image_tag @user.image.url %></p>
-
-<%= link_to 'User edit' , edit_user_path(@user.id) %>
+<div class="container">
+  <div class="user_content">
+    <P>
+    <strong>thumbnail:</strong>
+    <%= image_tag @user.image.url %>
+    </P>
+  </div>
+  <div class="user_content">
+    <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+    </P>
+  </div>
+  <div class="user_content">
+    <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+    </P>
+  </div>
+  <div class="user_content">
+    <%= link_to 'Back', users_path %>
+  </div>
+</div>
