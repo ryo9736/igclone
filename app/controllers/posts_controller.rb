@@ -7,13 +7,18 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def confirm
+    @post = current_user.posts.build(post_params)
+   render :new if @post.invalid?
+  end
+
   def create
     @post = current_user.posts.build(post_params)
-      if @post.save
-        redirect_to post_path(@post.id)
-      else
-        render 'new'
-      end
+    if  @post.save
+      redirect_to post_path(@post.id)
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -32,7 +37,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
        redirect_to posts_path
     else
-      render 'new'
+      render 'edit'
     end
   end
 
