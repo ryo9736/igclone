@@ -9,7 +9,6 @@ class PostsController < ApplicationController
 
   def confirm
     @post = current_user.posts.build(post_params)
-   render :new if @post.invalid?
   end
 
   def create
