@@ -2,34 +2,34 @@
   <div class="flex-container">
     <header class="headerr"><strong>Post info</strong></header>
   </div>
-  <div class="table-responsive">
-  <table class="table table-condensed">
-    <thead>
-      <tr class = "info">
-        <th>thumbnail</th>
-        <th>name</th>
-        <th>title</th>
-        <th>content</th>
-        <th>image</th>
-        <th>show</th>
-        <th>edit</th>
-        <th>delete</th>
-      </tr>
-    </thead>
-    <tbody>
+  <div class="main">
+    <ul class = "row">
       <% @posts.each do |post| %>
-      <tr class>
-        <th><%= image_tag post.user.image.url if post.user.image && post.user.image.url  %></th>
-        <th><%= post.user.name %></th>
-        <th><%= post.title %></th>
-        <th><%= post.content %></th>
-        <th><%= image_tag post.image.url if post.image && post.image.url  %></th>
-        <td><%= link_to 'show',post_path(post.id)%></td>
-        <td><%= link_to 'edit',edit_post_path(post.id)%></td>
-        <td><%= link_to "delete", post_path(post.id),method: :delete %></td>
-       </tr>
+        <li class = "col-md-3">
+          <P>thumbnail</P>
+          <%= image_tag post.user.image.url, class: "small-img" if post.user.image && post.user.image.url  %>
+        </li>
+        <li class = "col-md-3">
+          <p>name</p>
+          <%= post.user.name %>
+          <p>title</p>
+          <%= post.title %>
+          <P>content</p>
+          <%= post.content %>
+        </li>
+        <li class = "col-md-3">
+        <P>image</p>
+          <%= image_tag post.image.url if post.image && post.image.url  %>
+        </li>
+        <li class = "col-md-3">
+        <P>function</P>
+          <%= link_to 'show',post_path(post.id)%>
+          <br>
+          <%= link_to 'edit',edit_post_path(post.id)%>
+          <br>
+          <%= link_to "delete", post_path(post.id),method: :delete %>
+        </li>
       <% end %>
-    </tbody>
-  </table>
-</div>
+    </ul>
+  </div>
 </div>
