@@ -1,37 +1,42 @@
 class PostsController < ApplicationController
-  def index
-    @posts = Post.all
-  end
+  before_action :set_posts, only:[:show, :edit, :destroy, :update]
 
   def new
-    @post = Post.new
+    if params[:back]
+      @post = Post.new(post_params)
+    else
+      @post = Post.new
+    end
   end
 
   def confirm
     @post = current_user.posts.build(post_params)
+    render :new if @post.invalid?
   end
 
   def create
     @post = current_user.posts.build(post_params)
-    if  @post.save
+    if @post.save
+      #ImageMailer.image_mailer(@post).deliver
       redirect_to post_path(@post.id)
     else
       render 'new'
     end
   end
 
+  def index
+    @posts = Post.all
+  end
+
   def show
-    @post = Post.find(params[:id])
     @user = @post.user
   end
 
   def edit
-    @post = Post.find(params[:id])
     @user = @post.user
   end
 
   def update
-    @post = Post.find(params[:id])
     @post.user_id = current_user.id
     if @post.update(post_params)
        redirect_to posts_path
@@ -41,7 +46,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
   end
@@ -49,6 +53,11 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title,:content,:image,:image_cash)
+    params.require(:post).permit(:title,:content,:image,:image_cache)
   end
+
+  def set_posts
+    @post = Post.find(params[:id])
+  end
+
 end
