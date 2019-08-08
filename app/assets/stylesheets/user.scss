@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .card {
     max-width: 350px;
     padding: 50px 70px;
@@ -28,12 +27,12 @@
     border-radius: 100%;
 }
 
-
-.user_content{
-    height:150px;
-    text-align:center;
-    padding-top:100px;
+.title{
+    font-size:10em;
+    padding-top:1em;
+    padding-left:1em;
 }
+
 
 p{
     font-size:20px;
