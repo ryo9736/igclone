@@ -15,7 +15,7 @@
     <tbody>
       <% @users.each do |user| %>
       <tr class>
-        <th><%= image_tag user.image.url if user.image && user.image.url  %></th>
+        <th><%= image_tag user.image.url, class: "small-img" if user.image && user.image.url  %></th>
         <th><%= user.name %></th>
         <th><%= user.email %></th>
         <td><%= link_to '詳細を確認する',user_path(user.id)%></td>
