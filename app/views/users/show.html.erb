@@ -1,23 +1,33 @@
-<div class="container">
-  <div class="user_content">
-    <P>
-    <strong>thumbnail:</strong>
-    <%= image_tag @user.image.url,class: "small-img" %>
-    </P>
-  </div>
-  <div class="user_content">
-    <p>
-    <strong>Name:</strong>
-    <%= @user.name %>
-    </P>
-  </div>
-  <div class="user_content">
-    <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-    </P>
-  </div>
-  <div class="user_content">
-    <%= link_to 'Back', users_path %>
+<div class="flex-container">
+  <header class="header"><strong>User Info</strong></header>
+  <div class = "row">
+    <div class="main_left col-md-6">
+      <p class = "title">
+      <storng>IgClone</strong>
+      </P>
+    </div>
+    <div class="main_right col-md-6">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <P>
+        <strong>thumbnail:</strong>
+        <%= image_tag @user.image.url,class: "small-img" %>
+        </P>
+        <p>
+        <strong>Name:</strong>
+        <%= @user.name %>
+        </P>
+        <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+        </P>
+        <%= link_to 'Back', users_path %>
+    </div>
   </div>
 </div>

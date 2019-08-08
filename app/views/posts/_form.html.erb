@@ -1,22 +1,26 @@
-<div class="container_form">
+<div class="flex-container">
   <div class="row">
     <%= form_with(model: @post, local:true, url: choose_new_or_edit ) do |form| %>
-      <div class="col-md-3">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
         <%= form.label :title %>
         <%= form.text_field :title %>
-      </div>
-      <div class="col-md-3">
+      <br>
         <%= form.label :content %>
         <%= form.text_field :content %>
-      </div>
-      <div class="col-md-3">
+      <br>
         <%= form.label :image %>
         <%= form.file_field  :image %>
         <%= form.hidden_field :image_cache %>
-      </div>
-      <div class="col-md-3">
+      <br>
       <%= form.submit %>
-     </div>
     <% end %>
+  </div>
 </div>
 

@@ -1,35 +1,41 @@
-<div class="containerr">
-  <div class="flex-container">
-    <header class="headerr"><strong>Post info</strong></header>
-  </div>
-  <div class="main">
-    <ul class = "row">
-      <% @posts.each do |post| %>
-        <li class = "col-md-3">
-          <P>thumbnail</P>
-          <%= image_tag post.user.image.url, class: "small-img" if post.user.image && post.user.image.url  %>
-        </li>
-        <li class = "col-md-3">
-          <p>name</p>
-          <%= post.user.name %>
-          <p>title</p>
-          <%= post.title %>
-          <P>content</p>
-          <%= post.content %>
-        </li>
-        <li class = "col-md-3">
-        <P>image</p>
+<div class="flex-container">
+  <header class="header"><strong>Post Feed</strong></header>
+    <div class = "row">
+      <div class="main_left col-md-6">
+        <p class = "title_index">
+        <storng>IgClone</strong>
+        </P>
+      </div>
+      <div class="main_right  col-md-6">
+        <% @posts.each do |post| %>
+          <P>
+            <strong>thumbnail:</strong>
+            <%= image_tag post.user.image.url, class: "small-img" if post.user.image && post.user.image.url  %>
+          </P>
+          <p>
+            <strong>name:</strong>
+            <%= post.user.name %>
+          </p>
+          <p>
+            <strong>title:</strong>
+            <%= post.title %>
+          </p>
+          <P>
+            <strong>content:</strong>
+            <%= post.content %>
+          </p>
+          <P>
+          <strong>image:</strong>
           <%= image_tag post.image.url if post.image && post.image.url  %>
-        </li>
-        <li class = "col-md-3">
-        <P>function</P>
+          </P>
+          <P>
+          <strong>function:</strong>
+          </p>
           <%= link_to 'show',post_path(post.id)%>
           <br>
           <%= link_to 'edit',edit_post_path(post.id)%>
           <br>
           <%= link_to "delete", post_path(post.id),method: :delete %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+        <% end %>
+      </div>
 </div>

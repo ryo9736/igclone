@@ -1,3 +1,13 @@
-<h1><strong>Edit Post</strong></h1>
-
-<%= render 'form', post: @post %>
+<div class="flex-container">
+  <header class="header"><strong>Post Edit</strong></header>
+    <div class = "row">
+      <div class="main_left col-md-6">
+        <p class = "title_index">
+        <storng>IgClone</strong>
+        </P>
+      </div>
+      <div class="main_right  col-md-6">
+        <%= render 'form', post: @post %>
+      </div>
+    </div>
+</div>

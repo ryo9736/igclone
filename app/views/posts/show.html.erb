@@ -1,42 +1,33 @@
-<div class="container">
-  <div class="post_content">
-  <br>
-  <br>
-    <P>
-    <strong>thumbnail:</strong>
-    <%= image_tag @user.image.url,class: "small-img" %>
-    </P>
-    <P>
-    <strong>Name:</strong>
-    <%= @user.name %>
-    </P>
+<div class="flex-container">
+  <header class="header"><strong>Post Show</strong></header>
+  <div class = "row">
+    <div class="main_left col-md-6">
+      <p class = "title_index">
+        <storng>IgClone</strong>
+      </P>
+    </div>
+    <div class="main_right col-md-6">
+      <P>
+        <strong>thumbnail:</strong>
+        <%= image_tag @user.image.url,class: "small-img" %>
+      </P>
+      <P>
+        <strong>Name:</strong>
+        <%= @user.name %>
+      </P>
+      <P>
+        <strong>Title:</strong>
+        <%= @post.title %>
+      </P>
+       <P>
+        <strong>Content:</strong>
+        <%= @post.content %>
+       </P>
+       <p>
+         <strong>Image:</strong>
+         <%= image_tag @post.image.url if @post.image && @post.image.url %>
+        </p>
+        <%= link_to 'Back', posts_path %>
+    </div>
   </div>
-  <div class="post_content">
-  <br>
-  <br>
-    <P>
-    <strong>Title:</strong>
-    <%= @post.title %>
-    </P>
-  </div>
-  <div class="post_content">
-  <br>
-  <br>
-  <P>
-    <strong>Content:</strong>
-    <%= @post.content %>
-  </P>
-  </div>
-  <div class="post_content">
-  <br>
-  <br>
-  <p>
-    <strong>Image:</strong>
-    <%= image_tag @post.image.url if @post.image && @post.image.url %>
-  </p>
-  </div>
-  <br>
-  <br>
-  <%= link_to 'Back', posts_path %>
-  <br>
-  <br>
+</div>

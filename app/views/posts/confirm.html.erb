@@ -1,14 +1,25 @@
-<h1>投稿確認</h1>
+<div class="flex-container">
+  <header class="header"><strong>Post Confirm</strong></header>
+  <div class = "row">
+    <div class="main_left col-md-6">
+      <p class = "title_index">
+      <storng>IgClone</strong>
+      </P>
+    </div>
+    <div class="main_right  col-md-6">
+      <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+        <%= form.hidden_field :title %>
+        <%= form.hidden_field :content %>
+        <%= form.hidden_field  :image_cache %>
 
-<%= form_with(model: @post, url: posts_path, local: true) do |form| %>
-  <%= form.hidden_field :title %>
-  <%= form.hidden_field :content %>
-  <%= form.hidden_field  :image_cache %>
-
-
-  <p>タイトル:<%= @post.title %></p>
-  <p>本文:<%= @post.content %></p>
-  <p>Image:<%= image_tag @post.image.url if @post.image && @post.image.url  %></p>
-  <%= form.submit  "登録する" %>
-  <%= form.submit "戻る", name: 'back' %>
-<% end %>
+        <strong><p>タイトル:<%= @post.title %></p></strong>
+        <strong><p>本文:<%= @post.content %></p></strong>
+        <br>
+        <br>
+        <strong><p>Image:<%= image_tag @post.image.url if @post.image && @post.image.url  %></p></strong>
+        <%= form.submit  "登録する" %>
+        <%= form.submit "戻る", name: 'back' %>
+      <% end %>
+    </div>
+  </div>
+</div>
