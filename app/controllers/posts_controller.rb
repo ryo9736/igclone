@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_posts, only:[:show, :edit, :destroy, :update]
+  before_action :ensure_correct_user, only:[:edit, :destroy, :update]
 
   def new
     if params[:back]
@@ -61,4 +62,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def ensure_correct_user
+    if @post.user_id != current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to posts_path
+    end
+  end
 end
