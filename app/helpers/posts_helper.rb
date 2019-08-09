@@ -5,5 +5,5 @@ module PostsHelper
         elsif action_name == 'edit'
           post_path
         end
-      end
+    end
 end
