@@ -19,15 +19,22 @@
         <strong>Title:</strong>
         <%= @post.title %>
       </P>
-       <P>
+      <P>
         <strong>Content:</strong>
         <%= @post.content %>
-       </P>
-       <p>
-         <strong>Image:</strong>
-         <%= image_tag @post.image.url if @post.image && @post.image.url %>
-        </p>
-        <%= link_to 'Back', posts_path %>
+      </P>
+      <p>
+        <strong>Image:</strong>
+        <%= image_tag @post.image.url if @post.image && @post.image.url %>
+      </p>
+      <% unless @post.user_id == current_user.id %>
+        <% if @favorite.present? %>
+          <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete %>
+        <% else %>
+          <%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post  %>
+        <% end %>
+      <% end %>
+      <%= link_to 'Back', posts_path %>
     </div>
   </div>
 </div>
