@@ -1,0 +1,42 @@
+<div class="flex-container">
+  <header class="header"><strong>Post Feed</strong></header>
+    <div class = "row">
+      <div class="main_left col-md-6">
+        <p class = "title_index">
+        <storng>IgClone</strong>
+        </P>
+        <%= paginate @posts -%>
+      </div>
+      <div class="main_right  col-md-6">
+        <% @posts.each do |post| %>
+          <P>
+            <strong>thumbnail:</strong>
+            <%= image_tag post.user.image.url, class: "small-img" if post.user.image && post.user.image.url  %>
+          </P>
+          <p>
+            <strong>name:</strong>
+            <%= post.user.name %>
+          </p>
+          <p>
+            <strong>title:</strong>
+            <%= post.title %>
+          </p>
+          <P>
+            <strong>content:</strong>
+            <%= post.content %>
+          </p>
+          <P>
+          <strong>image:</strong>
+          <%= image_tag post.image.url if post.image && post.image.url  %>
+          </P>
+          <P>
+          <strong>function:</strong>
+          </p>
+          <%= link_to 'show',post_path(post.id)%>
+          <br>
+          <%= link_to 'edit',edit_post_path(post.id)%>
+          <br>
+          <%= link_to "delete", post_path(post.id),method: :delete %>
+        <% end %>
+      </div>
+</div>
