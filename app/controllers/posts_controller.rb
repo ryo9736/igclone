@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      PostMailer.post_mailer(@post).deliver
+      #PostMailer.post_mailer(@post).deliver
       flash[:info] = 'Create Post'
       redirect_to post_path(@post.id)
     else
