@@ -5,6 +5,7 @@
         <p class = "title_index">
         <storng>IgClone</strong>
         </P>
+        <%= paginate @posts -%>
       </div>
       <div class="main_right  col-md-6">
         <% @posts.each do |post| %>
