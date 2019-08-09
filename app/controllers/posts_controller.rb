@@ -18,9 +18,11 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      #ImageMailer.image_mailer(@post).deliver
+      PostMailer.post_mailer(@post).deliver
+      flash[:info] = 'Create Post'
       redirect_to post_path(@post.id)
     else
+      flash[:alert] = 'failed'
       render 'new'
     end
   end
@@ -41,7 +43,7 @@ class PostsController < ApplicationController
   def update
     @post.user_id = current_user.id
     if @post.update(post_params)
-       redirect_to posts_path
+       redirect_to posts_path,notice: 'Edit Post'
     else
       render 'edit'
     end
@@ -49,7 +51,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path
+    redirect_to posts_path,notice: "Destroy Post"
   end
 
   private
@@ -64,7 +66,6 @@ class PostsController < ApplicationController
 
   def ensure_correct_user
     if @post.user_id != current_user.id
-      flash[:notice] = "権限がありません"
       redirect_to posts_path
     end
   end
