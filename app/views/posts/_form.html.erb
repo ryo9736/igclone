@@ -1,5 +1,6 @@
 <div class="flex-container">
   <div class="row">
+    <div class = "form">
     <%= form_with(model: @post, local:true, url: choose_new_or_edit ) do |form| %>
       <br>
       <br>
@@ -12,15 +13,24 @@
         <%= form.label :title %>
         <%= form.text_field :title %>
       <br>
+      <br>
+      <br>
         <%= form.label :content %>
         <%= form.text_field :content %>
       <br>
+      <br>
+      <br>
         <%= form.label :image %>
+      <br>
         <%= form.file_field  :image %>
+      <br>
         <%= form.hidden_field :image_cache %>
+      <br>
+      <br>
       <br>
       <%= form.submit %>
     <% end %>
+    </div>
   </div>
 </div>
 
