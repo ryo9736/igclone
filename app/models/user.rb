@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   has_many :posts,dependent: :destroy
   has_many :favorites,dependent: :destroy
-  
   has_secure_password
   validates :password_digest, presence: true, length: { minimum: 6 }
   validates :name, presence: true,length: { maximum: 20 }
