@@ -7,7 +7,7 @@
         </P>
       </div>
       <div class="main_right  col-md-6">
-        <% @favorite.each do |favorite| %>
+        <% @favorites.each do |favorite| %>
           <P>
             <strong>image:</strong>
             <%= link_to image_tag(favorite.post.image.url), post_path(favorite.post_id) %>
@@ -17,5 +17,6 @@
             <strong>Name:</strong>
             <%= link_to favorite.post.user.name , user_path(favorite.post.user.id) %>
         <% end %>
+        <%= paginate @favorites -%>
       </div>
 </div>
