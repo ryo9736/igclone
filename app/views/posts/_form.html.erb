@@ -1,6 +1,17 @@
 <div class="flex-container">
   <div class="row">
     <div class = "form">
+      <% if @post.errors.any? %>
+        <div class="alert alert-warning">
+          <ul>
+            <% @post.errors.full_messages.each do |msg| %>
+              <li>
+                <%= msg %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     <%= form_with(model: @post, local:true, url: choose_new_or_edit ) do |form| %>
       <br>
       <br>
