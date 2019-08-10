@@ -29,9 +29,9 @@
       </p>
       <% unless @post.user_id == current_user.id %>
         <% if @favorite.present? %>
-          <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete %>
+          <%= link_to 'Delete', favorite_path(id: @favorite.id), method: :delete %>
         <% else %>
-          <%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post  %>
+          <%= link_to 'Like', favorites_path(post_id: @post.id), method: :post  %>
         <% end %>
       <% end %>
       <%= link_to 'Back', posts_path %>
